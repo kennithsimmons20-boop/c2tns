@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ndless C Compiler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand-mark">N</div>
+      <div>
+        <p class="eyebrow">TI-NSPIRE CX · NDLESS</p>
+        <h1>C to TNS Compiler</h1>
+        <p class="subtitle">Build native calculator programs in your browser.</p>
+      </div>
+    </header>
+
+    <section class="notice" id="setupNotice">
+      <div class="notice-icon">↓</div>
+      <div>
+        <strong>First-time setup</strong>
+        <p>This compiler requires a one-time download of the compilation tools. The download may be several tens of megabytes. Once downloaded, the tools will be stored locally in your browser for future use.</p>
+        <div class="setup-row">
+          <span id="setupStatus">Compiler package not installed</span>
+          <button id="setupButton" class="secondary" type="button">Check compiler package</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SOURCE</p>
+          <h2>Your C program</h2>
+        </div>
+        <label class="file-button">
+          <input id="fileInput" type="file" accept=".c,.h,.txt">
+          <span>Upload .c file</span>
+        </label>
+      </div>
+
+      <label class="field-label" for="programName">Program name</label>
+      <input id="programName" class="name-input" value="myprogram" maxlength="48" spellcheck="false">
+
+      <label class="field-label" for="sourceCode">C source code</label>
+      <textarea id="sourceCode" spellcheck="false" autocapitalize="off" autocomplete="off">#include <stdio.h>
+
+int main(void) {
+    printf("Hello, TI-Nspire!\\n");
+    return 0;
+}</textarea>
+
+      <div class="actions">
+        <button id="compileButton" class="primary" type="button">Compile to .tns</button>
+        <span class="hint">Compilation is performed locally in your browser when the Ndless WebAssembly toolchain is installed.</span>
+      </div>
+    </section>
+
+    <section class="panel output-panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BUILD OUTPUT</p>
+          <h2>Compiler log</h2>
+        </div>
+        <span class="status-pill" id="buildStatus">IDLE</span>
+      </div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <pre id="log" aria-live="polite">Ready. Select a C file or edit the example above.</pre>
+    </section>
+
+    <footer>
+      <span>Runs locally · Your C source is not uploaded</span>
+      <span>For calculators with Ndless installed</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
